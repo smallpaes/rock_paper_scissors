@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='./assignment_css.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+    <script>
+
+    
+    
+
+    function computerPlay(){
+        let randomInt = Math.random();
+        switch(true){
+            case randomInt <= 0.3:
+                return 'stone';
+                break;
+            case randomInt <= 0.6:
+                return 'paper';
+                break;
+            case randomInt <= 0.9:
+                return 'scissors';
+                break;
+            
+        }
+    }
+        
+    function roundPlay(playerSelection, computerSelection){
+        switch (true){
+            case playerSelection == "stone" && computerSelection == "scissors":
+                alert('You are the winner!');
+                playerTotalScore += 1;
+                break;
+            case playerSelection == "stone" && computerSelection == "paper":
+                alert('You lose!');
+                computerTotalScore += 1;
+                break;
+            case playerSelection == "stone" && computerSelection == "stone":
+                alert('even!');
+                playerTotalScore += 1;
+                computerTotalScore += 1;
+                break;
+            case playerSelection == "paper" && computerSelection == "scissors":
+                alert('You lose!');
+                computerTotalScore += 1;
+                break;
+            case playerSelection == "paper" && computerSelection == "paper":
+                alert('even!');
+                playerTotalScore += 1;
+                computerTotalScore += 1;
+                break;
+            case playerSelection == "paper" && computerSelection == "stone":
+                alert('You are the winner!');
+                playerTotalScore += 1;
+                break;
+            case playerSelection == "scissors" && computerSelection == "scissors":
+                alert('even!');
+                playerTotalScore += 1;
+                computerTotalScore += 1;
+                break;
+            case playerSelection == "scissors" && computerSelection == "paper":
+                alert('You are the winner!');
+                playerTotalScore += 1;
+                break;
+            case playerSelection == "scissors" && computerSelection == "stone":
+                alert('You lose!');
+                computerTotalScore += 1;
+                break;
+        }
+
+    }
+
+
+    function game(){
+        let totalRound = 1;
+        while(totalRound <= 5){
+        let playerSelection = prompt('Enter \'paper\' / \'stone\' / \'scissors\'').toLowerCase();
+        let computerSelection = computerPlay();
+        roundPlay(playerSelection, computerSelection);
+        console.log('computerTotalScore: ' + computerTotalScore +' & playerTotalScore: ' + playerTotalScore);
+        totalRound ++;      
+        }
+        if (playerTotalScore>computerTotalScore) {
+            console.log('You are the final winner!');
+        } else if(playerTotalScore<computerTotalScore) {
+            console.log('Computer is the final winner!');
+        } else{
+            console.log('Even in the end');
+        }
+    }
+
+
+    let computerTotalScore = 0;
+    let playerTotalScore = 0;
+
+    </script>
+
+    <h1>You Are Playing: Stone, Paper, Scissors</h1>
+    <h3>-> Type game() in console to play</h3>
+    <button class="paper" type='button'>Paper</button>
+    <button class="stone" type='stone'>stone</button>
+    <button class="scissors" type='scissors'>scissors</button>
+</body>
+</html>
