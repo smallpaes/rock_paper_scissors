@@ -78,14 +78,19 @@
         let computerSelection = computerPlay();
         roundPlay(playerSelection, computerSelection);
         console.log('computerTotalScore: ' + computerTotalScore +' & playerTotalScore: ' + playerTotalScore);
+        document.getElementById("computerTotalScore").innerHTML = computerTotalScore;
+        document.getElementById("playerTotalScore").innerHTML = playerTotalScore;
         totalRound ++;      
         }
         if (playerTotalScore>computerTotalScore) {
             console.log('You are the final winner!');
+            document.getElementById("finalWinner").innerHTML = "You";
         } else if(playerTotalScore<computerTotalScore) {
             console.log('Computer is the final winner!');
+            document.getElementById("finalWinner").innerHTML = "Computer";
         } else{
             console.log('Even in the end');
+            document.getElementById("finalWinner").innerHTML = "Even";
         }
     }
 
@@ -95,8 +100,21 @@
 
     </script>
 
-    <h1>You Are Playing: Stone, Paper, Scissors</h1>
-    <h3>-> Type game() in console to play</h3>
+    <h1>Stone, Paper, Scissors</h1>
+    <h2 class="current_method"><img class="middle" src="https://www.clipartmax.com/png/full/305-3050424_clipart-right-arrow-red-arrow-pointing-right.png" alt="red-right-arrow" height="20" width="20"/>  You can now play the game by:</h2>
+    <h3>Typing "game()" in console</h3>
+    <div class="score">
+        <a id="result">Result:</a><br>
+        <a>Computer:</a>
+        <a id="computerTotalScore"></a>
+        <a>  |  You:</a>
+        <a id="playerTotalScore"></a>
+        <a>  |  Final Winner:</a>
+        <a id="finalWinner"></a>
+    </div>
+
+    <h2 class="future_method"><img class="middle" src="https://www.clipartmax.com/png/full/305-3050424_clipart-right-arrow-red-arrow-pointing-right.png" alt="red-right-arrow" height="20" width="20"/>  Play directly below (Still building)</h2>
+    <h3>Choose among 'paper', 'scissors', or'stone' and clcik the button directly</h3>
     <button class="paper" type='button'>Paper</button>
     <button class="stone" type='stone'>stone</button>
     <button class="scissors" type='scissors'>scissors</button>
